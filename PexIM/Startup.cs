@@ -26,6 +26,7 @@ namespace PexIM
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
 
             services.AddDbContext<PexIMContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("PexIMContext")));
@@ -49,6 +50,7 @@ namespace PexIM
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -56,6 +58,7 @@ namespace PexIM
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

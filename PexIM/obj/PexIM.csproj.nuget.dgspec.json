@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lúcia\\source\\repos\\PexIM\\PexIM\\PexIM\\PexIM.csproj": {}
+    "C:\\Users\\Lúcia\\git\\PexIM\\PexIM\\PexIM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lúcia\\source\\repos\\PexIM\\PexIM\\PexIM\\PexIM.csproj": {
+    "C:\\Users\\Lúcia\\git\\PexIM\\PexIM\\PexIM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lúcia\\source\\repos\\PexIM\\PexIM\\PexIM\\PexIM.csproj",
+        "projectUniqueName": "C:\\Users\\Lúcia\\git\\PexIM\\PexIM\\PexIM.csproj",
         "projectName": "PexIM",
-        "projectPath": "C:\\Users\\Lúcia\\source\\repos\\PexIM\\PexIM\\PexIM\\PexIM.csproj",
+        "projectPath": "C:\\Users\\Lúcia\\git\\PexIM\\PexIM\\PexIM.csproj",
         "packagesPath": "C:\\Users\\Lúcia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lúcia\\source\\repos\\PexIM\\PexIM\\PexIM\\obj\\",
+        "outputPath": "C:\\Users\\Lúcia\\git\\PexIM\\PexIM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lúcia\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,6 +38,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.0, )"
