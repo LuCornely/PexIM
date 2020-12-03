@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +25,57 @@ namespace PexIM.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Usuarios.ToListAsync());
+        }
+
+        // GET: Usuarios
+        public async Task<IActionResult> Login()
+        {
+            return View(await _context.Usuarios.ToListAsync());
+        }
+
+        public async Task<IActionResult> Logar(string LoginPex, string Password)
+        {
+            if (LoginPex == "vai" && Password == "cavalo")
+            {
+                //OK
+                Login(LoginPex);
+
+                return RedirectToAction("Index", "Home");
+
+            }
+            else
+            {
+                ViewData["msgUsuario"]  = "Usuário e / ou senha incorretos!";
+
+                return RedirectToAction("Login", "Usuarios");
+            }
+
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login");
+        }
+
+        private async void Login(string login)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, login)
+            };
+
+            var identidadeDeUsuario = new ClaimsIdentity(claims, "Login");
+            ClaimsPrincipal claimPrincipal = new ClaimsPrincipal(identidadeDeUsuario);
+
+            var propriedadesDeAutenticacao = new AuthenticationProperties
+            {
+                AllowRefresh = true,
+                ExpiresUtc = DateTime.Now.ToLocalTime().AddHours(2),
+                IsPersistent = true
+            };
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimPrincipal, propriedadesDeAutenticacao);
         }
 
         // GET: Usuarios/Details/5

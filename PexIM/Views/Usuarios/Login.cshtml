@@ -1,0 +1,143 @@
+﻿
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<style>
+    .a {
+        text-align: justify;
+        padding: 8px;
+    }
+
+    .b {
+        text-align: end;
+        padding: 8px;
+    }
+
+    .c {
+        font-size: 10px;
+    }
+
+    .d {
+        margin-top: auto;
+    }
+
+    .e {
+        text-align: initial;
+        padding: 8px;
+    }
+
+    .f {
+        background-color: #AEBECB;
+        position: absolute;
+        padding: 100px;
+        margin: 0 0 20px 30px;
+    }
+
+    .g {
+    }
+</style>
+
+
+@using (Html.BeginForm("Logar", "Usuarios", FormMethod.Post))
+{
+    <div class="container f">
+
+
+        <div class="row  ">
+
+            <div class="col-md-6 b">
+                <p class="display-4"> Fazer login</p>
+
+            </div>
+
+            <div class="col-md-6 e">
+                <img src="~/Imagens/Pex-horizontal-sem-fundo.webp" style="padding:5px;" />
+
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3 a">
+
+
+
+
+            </div>
+            <div class="col-md-3 a">
+
+                <input type="text" class="form-control" placeholder="Login" id="LoginPex" name="LoginPex">
+
+
+
+
+            </div>
+            <div class="col-md-6">
+
+            </div>
+
+
+        </div>
+
+        <div class="row ">
+            <div class="col-md-6 a">
+
+            </div>
+
+            <div class="col-md-6">
+
+
+            </div>
+
+        </div>
+
+        <div class="row ">
+            <div class="col-md-3 a">
+            </div>
+            <div class="col-md-3 a">
+                <input type="password" class="form-control" placeholder="Senha" id="Password" name="Password">
+
+            </div>
+            <div class="col-md-6">
+                @*<h4>teste</h4>*@
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-md-3 a">
+            </div>
+            <div class="col-md-3 a">
+            </div>
+            <div class="col-md-6">
+                @*<h4>teste</h4>*@
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-md-3 b">
+
+            </div>
+            <div class="col-md-3 b">
+                <input type="submit" value="Próxima" class="btn btn-primary" />
+                <span style="color:red;font-size:10px">  @ViewData["msgUsuario"]</span>
+
+            </div>
+            <div class="col-md-6">
+                @*<h4>teste</h4>*@
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
