@@ -55,6 +55,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "Oracle.ManagedDataAccess": {
+              "target": "Package",
+              "version": "[19.10.0, )"
+            },
+            "Sitecore.FakeDb": {
+              "target": "Package",
+              "version": "[2.0.1, )"
             }
           },
           "imports": [

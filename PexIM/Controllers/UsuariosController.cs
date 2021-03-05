@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -9,6 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PexIM.Models;
+using PexIM.Criptografia;
+using Sitecore.FakeDb;
 
 namespace PexIM.Controllers
 {
@@ -20,6 +23,8 @@ namespace PexIM.Controllers
         {
             _context = context;
         }
+
+
 
         // GET: Usuarios
         public async Task<IActionResult> Index()
@@ -35,6 +40,10 @@ namespace PexIM.Controllers
 
         public async Task<IActionResult> Logar(string LoginPex, string Password)
         {
+            var hash = new Hash(SHA512.Create());
+            var senha = hash.CriptografarSenha(Password);
+
+
             if (LoginPex == "vai" && Password == "cavalo")
             {
                 //OK
